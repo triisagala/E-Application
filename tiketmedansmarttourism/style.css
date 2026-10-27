@@ -1,0 +1,133 @@
+/* Medan Smart Tourism: tema Smart City
+   Biru  = Danau Toba dan teknologi (warna utama)
+   Teal  = kota hijau dan wisata alam
+   Emas  = Istana Maimun dan budaya Melayu (aksen) */
+/* Terang adalah tema bawaan. Gelap dipilih lewat tombol Tema (disimpan di browser). */
+:root{
+  --bg:#f3f8fc;--card:#fff;--ink:#0e2238;--mute:#5a6f86;--line:#d9e4ef;
+  --green:#0b6fbd;      /* warna utama (nama variabel dipertahankan) */
+  --link:#0b6fbd;
+  --teal:#12a594;
+  --gold:#e8b923;--red:#b3362b;--ok:#1d7a4f;
+  --bayangan:0 1px 2px rgba(15,34,54,.06),0 6px 18px rgba(15,34,54,.06);
+}
+html[data-theme="dark"]{
+  --bg:#0a1626;--card:#10233a;--ink:#e6eef7;--mute:#93a9c0;--line:#21374f;
+  --green:#1a7bbd;--link:#72c4f2;--teal:#2dd4bf;--red:#ff8a7a;--ok:#5dd29a;
+  --bayangan:0 1px 2px rgba(0,0,0,.3);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,Segoe UI,Arial,sans-serif}
+a{color:var(--link)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.wrap{max-width:1000px;margin:0 auto;padding:16px}
+
+/* kepala halaman */
+.top{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin-bottom:20px;padding-bottom:14px;border-bottom:3px solid;border-image:linear-gradient(90deg,var(--green),var(--teal),var(--gold)) 1}
+.brand{font-size:1.3rem;font-weight:800;text-decoration:none;color:var(--ink);letter-spacing:-.01em}
+.brand small{display:block;font-size:.8rem;font-weight:400;color:var(--mute);letter-spacing:0}
+nav{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+nav a{text-decoration:none;font-weight:600;color:var(--ink);padding:6px 12px;border-radius:99px}
+nav a:hover{background:var(--card);box-shadow:inset 0 -2px 0 var(--gold)}
+nav .mute{margin:0 4px}
+
+h2{font-size:1.25rem;margin:8px 0 12px}
+h3{margin:14px 0 6px}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(270px,1fr))}
+.grid2{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:14px;box-shadow:var(--bayangan)}
+.in,.card .in,.card.in{padding:16px}
+.narrow{max-width:420px}
+.pic{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;background:var(--line)}
+.ph{display:grid;place-items:center;text-align:center;padding:12px;color:#fff;font-weight:600;background:linear-gradient(135deg,#0b5c8a,#14a39a)}
+.tag{display:inline-block;font-size:.8rem;padding:1px 10px;border-radius:99px;background:var(--gold);color:#2b2200;font-weight:600}
+.mute{color:var(--mute);font-size:.92rem}
+.harga{font-size:1.2rem;font-weight:700;margin:10px 0}
+.harga small{font-weight:400;color:var(--mute);font-size:.85rem}
+
+/* tombol dan formulir */
+.btn{display:inline-block;background:var(--green);color:#fff;text-decoration:none;border:0;cursor:pointer;font:inherit;font-weight:600;padding:10px 16px;border-radius:10px}
+.btn:hover{filter:brightness(1.1)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.pill{width:100%;border-radius:99px;padding:14px;margin-top:14px}
+label{display:block;margin:10px 0;font-weight:600}
+input[type=text],input[type=email],input[type=password],input[type=number],input[type=date]{font:inherit;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--ink);width:100%;max-width:340px;display:block;margin-top:4px}
+form input[type=date]{display:inline-block;width:auto}
+.alert{padding:10px 14px;border-radius:10px;border:1px solid var(--gold);background:var(--card)}
+.alert.err{border-color:var(--red);color:var(--red)}
+.alert.ok{border-color:var(--ok);color:var(--ok)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px}
+.chip{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:8px 12px;border-radius:10px;cursor:pointer;font:inherit;font-weight:400;margin:0}
+.chip:hover{border-color:var(--green)}
+.chip.off{opacity:.4;text-decoration:line-through;cursor:not-allowed}
+.chip small{color:var(--mute)}
+
+/* pembayaran */
+.pay{display:grid;gap:16px;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)}
+@media(max-width:760px){.pay{grid-template-columns:1fr}}
+fieldset{border:1px solid var(--line);border-radius:12px;margin:0 0 12px;padding:8px 12px}
+legend{font-weight:700;padding:0 6px}
+.opt{font-weight:400;margin:6px 0;display:flex;gap:8px;align-items:center}
+form.inline{display:flex;gap:8px;align-items:flex-end;flex-wrap:wrap}
+.baris{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 0;border-bottom:1px dashed var(--line)}
+.baris.total{font-size:1.2rem;font-weight:800;color:var(--link);border-bottom:0}
+.baris a{font-weight:600}
+.center{text-align:center}
+
+/* tiket dan antrean */
+.antrean{background:linear-gradient(120deg,#0b5c8a,#0e8f8a);color:#fff;border-radius:14px;padding:14px 16px;margin:14px 0 10px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}
+.nomor{font-size:2.4rem;font-weight:800;line-height:1.1}
+.mute-w{opacity:.88;font-size:.9rem}
+.kanan{text-align:right}
+.tiket{display:flex;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:12px;box-shadow:var(--bayangan)}
+.tiket .utama{flex:1;padding:14px 16px;border-left:8px solid var(--gold)}
+.tiket .stub{padding:12px;border-left:2px dashed var(--line);display:flex;align-items:center}
+.tiket.used{opacity:.55}
+.qr{background:#fff;padding:6px;border-radius:8px;line-height:0}
+
+/* petugas */
+.hasil{padding:12px 14px;border-radius:10px;font-weight:600}
+.hasil.ok{background:#d6f0e2;color:#0d4a2c}
+.hasil.err{background:#fbdcd7;color:#7a1d14}
+
+/* dashboard */
+.stats{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));margin-bottom:6px}
+.stats b{display:block;font-size:1.5rem}
+.stats small{display:block}
+.bars{display:flex;align-items:flex-end;gap:8px;height:170px}
+.bars .kolom{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;font-size:.8rem}
+.bars i{display:block;width:100%;background:var(--teal);border-radius:4px}
+.bars i.hari{background:var(--gold)}
+.bar-item{margin:10px 0}
+.bar{height:10px;background:var(--line);border-radius:6px;overflow:hidden}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--teal),var(--gold))}
+.bar-atas{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.filter{display:flex;flex-wrap:wrap;gap:6px}
+svg text{fill:var(--mute);font-size:11px;font-family:inherit}
+.gulir{overflow-x:auto}
+.tabel{width:100%;border-collapse:collapse;font-size:.92rem}
+.tabel th,.tabel td{text-align:left;padding:8px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+.tabel th{color:var(--mute);font-weight:600}
+.st{display:inline-block;padding:1px 10px;border-radius:99px;font-size:.82rem;font-weight:600;background:var(--line)}
+.st-paid{background:#d6f0e2;color:#0d4a2c}
+.st-pending{background:#fbeec2;color:#5c4400}
+.st-expired,.st-cancelled{background:#fbdcd7;color:#7a1d14}
+
+/* banner sambutan */
+.hero{position:relative;overflow:hidden;color:#fff;border-radius:18px;padding:26px 24px;margin-bottom:22px;
+  background:radial-gradient(circle at 92% 8%,rgba(232,185,35,.65),transparent 38%),radial-gradient(circle at 70% 120%,rgba(45,212,191,.5),transparent 45%),linear-gradient(120deg,#0a4f86,#0b7aa8 60%,#0e8f8a)}
+.hero h2{font-size:1.7rem;margin:0 0 6px;line-height:1.2}
+.hero p{margin:0 0 14px;max-width:560px;opacity:.95}
+.lencana{display:flex;flex-wrap:wrap;gap:8px}
+.lencana span{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);padding:4px 12px;border-radius:99px;font-size:.88rem;font-weight:600}
+
+/* warna label per kategori */
+.tag.kat-budaya{background:#e8b923;color:#2b2200}
+.tag.kat-religi{background:#7c4dbd;color:#fff}
+.tag.kat-museum{background:#0e8f8a;color:#fff}
+.tag.kat-tur{background:#0b6fbd;color:#fff}
+.tag.kat-alam{background:#2e9e5b;color:#fff}
+
+/* tombol ganti tema */
+.tema{font:inherit;font-weight:600;cursor:pointer;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:99px;padding:6px 14px}
+.tema:hover{border-color:var(--green)}
